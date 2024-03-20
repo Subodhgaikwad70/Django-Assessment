@@ -1,0 +1,42 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 350px;
+            padding: 20px;
+            margin-right: auto;
+            margin-left: auto;
+            border: 1px solid #000;
+            border-radius: 10px;
+        }
+
+        p {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1>Register</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+            <p>Already have an account? <a href="{% url 'login' %}">Log in</a></p>
+        </form>
+    </div>
+</body>
+</html>

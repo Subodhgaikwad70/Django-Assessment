@@ -1,0 +1,58 @@
+<!-- track_service_request.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Track Service Request</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            padding: 20px;
+            margin-right: auto;
+            margin-left: auto;
+            border: 1px solid #000;
+            border-radius: 10px;
+        }
+
+        p {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Track Service Request</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Track</button>
+        </form>
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+
+        {% if service_details %}
+        <h2>Service Details</h2>
+        <p>Service Request ID: {{ service_details.id }}</p>
+        <p><strong>Status:</strong> {{ service_details.status|title }}</p>
+        <p><strong>Date Created:</strong> {{ service_details.created_at }}</p>
+        {% if service_details.resolved_at %}
+        <p><strong>Date Resolved:</strong> {{ service_details.resolved_at }}</p>
+        {% endif %}
+        <a href="{% url 'submit_service_request' %}">Submit Another Request</a>
+        <a href="{% url 'home' %}">Home</a>
+
+        {% endif %}
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!-- service_request_submitted.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Service Request Submitted</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            padding: 20px;
+            margin-right: auto;
+            margin-left: auto;
+            border: 1px solid #000;
+            border-radius: 10px;
+        }
+
+        p {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1>Service Request Submitted</h1>
+        <p>Your request has been submitted successfully.</p>
+        <p>Your request ID is: {{ request_id }}</p>
+        <a href="{% url 'home' %}">Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!-- consumer_services/templates/home.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Gas Utility Company</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            padding: 20px;
+            margin-right: auto;
+            margin-left: auto;
+            border: 1px solid #000;
+            border-radius: 10px;
+        }
+
+        p {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        li {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Welcome to the Gas Utility Company</h1>
+        <p>What would you like to do?</p>
+        <ul>
+            <li><a href="{% url 'submit_service_request' %}">Request a Service</a></li>
+            <li><a href="{% url 'track_service_request' %}">Track Service Requests</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
